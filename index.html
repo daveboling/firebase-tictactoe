@@ -4,12 +4,19 @@
   <head>
     <link href="css/main.css" rel="stylesheet" type="text/css" >
     <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.js"></script>
+    <script src="https://cdn.firebase.com/js/client/2.0.5/firebase.js"></script>
     <script src="script/main.js"></script>
 
   </head>
   <body>
     <h1>Tic-Tac-Toe</h1>
     <h3 id="players-turn"></h3>
+    <h1 id='playerNum'></h1>
+    <p id='player'></p>
+    <button style='display: none;' id='setPlayer1'>Set Player 1</button>
+    <button style='display: none;' id='setPlayer2'>Set Player 2</button>
+    <button id='resetGame'>Reset Game</button>
+
     <table>
       <tr>
         <td></td>
