@@ -34,14 +34,16 @@ fb.child('player1/isConnected').on('value', function(connection1){
   fb.child('player2/isConnected').on('value', function(connection2){
     if(!connection1.val()){
       setPlayerOne.show();
-    }
-    if(!connection2.val()){
-      setPlayerTwo.show();
-    }
-    else {
-      setPlayerTwo.hide();
+    }else{ 
       setPlayerOne.hide();
     }
+
+    if(!connection2.val()){
+      setPlayerTwo.show();
+    }else {
+      setPlayerTwo.hide();
+    }
+
   });
 });
 
@@ -49,6 +51,7 @@ $('#setPlayer1').on('click', function(){
   fb.child('player1/isConnected').set(true);
   $(this).hide();
   playerNumber = 1;
+  setPlayerTwo.hide();
   $('#player').text('You are player 1');
 });
 
@@ -56,16 +59,15 @@ $('#setPlayer2').on('click', function(){
   fb.child('player2/isConnected').set(true);
   $(this).hide();
   playerNumber = 2;
+  setPlayerOne.hide();
   $('#player').text('You are player 2');
 });
 
 $('#resetGame').on('click', function(){
   fb.child('player2/isConnected').set(false);
   fb.child('player1/isConnected').set(false);
+  $('#player').text('You currently don\'t have a seat');
 });
-
-
-
 
 
 
